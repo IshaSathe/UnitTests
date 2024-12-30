@@ -16,6 +16,3 @@ jobs:
         shell: bash
         run: |
           echo "finished workflow run triggered test"
-
-
-      
