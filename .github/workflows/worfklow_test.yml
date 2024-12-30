@@ -1,3 +1,5 @@
+name: "workflow_test"
+
 on:
   workflow_run:
     workflows:
@@ -5,16 +7,15 @@ on:
     types:
       - completed
 
-
 jobs:
-  job1:
-    name: workflow_test_job1
-    runs-on: ubuntu-latest
+  pr_test_job1:
+    runs-on: [ubuntu-latest]
 
     steps:
-    - name: print
-      shell: bash
-      run: |
-        echo "finished workflow run triggered test"
+      - name: print
+        shell: bash
+        run: |
+          echo "finished workflow run triggered test"
+
 
       
