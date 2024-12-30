@@ -3,7 +3,7 @@ name: "pr_test"
 on:
   pull_request:
     branches:
-    - main
+      - main
 
 jobs:
   pr_test_job1:
