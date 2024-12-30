@@ -1,0 +1,19 @@
+on:
+  workflow_run:
+    workflows:
+      - pr_test
+    types:
+      - completed
+
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: print
+      shell: bash
+      run: |
+        echo "finished workflow run triggered test"
+
+      
