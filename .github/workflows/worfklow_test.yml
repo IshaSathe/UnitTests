@@ -12,6 +12,10 @@ jobs:
     runs-on: [ubuntu-latest]
 
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref }}
       - name: print
         shell: bash
         run: |
