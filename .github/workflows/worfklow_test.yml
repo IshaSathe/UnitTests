@@ -8,7 +8,7 @@ on:
       - completed
 
 jobs:
-  pr_test_job1:
+  workflow_test_job1:
     runs-on: [ubuntu-latest]
 
     steps:
