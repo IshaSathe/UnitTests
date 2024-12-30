@@ -1,4 +1,4 @@
-name: pr_test
+name: "pr_test"
 
 on:
   pull_request:
@@ -6,12 +6,11 @@ on:
     - main
 
 jobs:
-  job1:
-    name: pr_test_job1
-    runs-on: ubuntu-latest
+  pr_test_job1:
+    runs-on: [ubuntu-latest]
 
     steps:
-    - name: print
-      shell: bash
-      run: |
-        echo "finished pr triggered test"
+      - name: print
+        shell: bash
+        run: |
+          echo "finished pr triggered test"
