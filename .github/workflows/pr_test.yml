@@ -1,0 +1,14 @@
+on:
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: print
+      shell: bash
+      run: |
+        echo "finished pr triggered test"
