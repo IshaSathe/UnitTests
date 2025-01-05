@@ -19,11 +19,11 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions@nationwide.com"
-          git add dist/*
-          if git diff --quiet --cached dist/; then
+          git add tests/test.txt
+          if git diff --quiet --cached tests/; then
             echo "no changes to commit"
           else
-            git commit -m "add dist"
+            git commit -m "add test"
             git push -u origin ${{ github.head_ref || github.ref }}
           fi
 
