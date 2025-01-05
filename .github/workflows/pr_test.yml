@@ -6,11 +6,31 @@ on:
       - main
 
 jobs:
-  pr_test_job1:
-    runs-on: [ubuntu-latest]
-
+  Build:
+    runs-on: [small-linux]
     steps:
-      - name: print
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref }}
+      - name: add
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@nationwide.com"
+          git add dist/*
+          if git diff --quiet --cached dist/; then
+            echo "no changes to commit"
+          else
+            git commit -m "add dist"
+            git push -u origin ${{ github.head_ref || github.ref }}
+          fi
+
+  Pre_Test:
+    name: pre_test
+    needs: Build
+    runs-on: [small-linux]
+    steps:
+      - id: clean_up
+        name: clean up
         shell: bash
         run: |
-          echo "finished pr triggered test"
+          echo "pre test clean up"
