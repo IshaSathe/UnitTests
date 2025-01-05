@@ -10,7 +10,7 @@ on:
 
 jobs:
   Build:
-    runs-on: [small-linux]
+    runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -30,7 +30,7 @@ jobs:
   Pre_Test:
     name: pre_test
     needs: Build
-    runs-on: [small-linux]
+    runs-on: [ubuntu-latest]
     steps:
       - id: clean_up
         name: clean up
